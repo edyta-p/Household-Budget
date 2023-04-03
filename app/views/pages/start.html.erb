@@ -1,0 +1,24 @@
+<div class="background-color">
+<h3 class="centering">What kind of expense would you like to enter?</h3>
+  <div class="grid-container">
+  <% @categories.each do |cat| %>
+    <% if cat.include?(" ") %>
+      <% cat = cat.gsub(" ", "_") %>
+      <%= link_to '#', class:'no_underscore' do %>
+        <figure>
+          <%= image_tag("categories/#{cat.downcase}.jpg", alt: cat, class:'card-category') %>
+          <% cat = cat.gsub("_", " ") %>
+          <figcaption class='nice-font'><%= cat %></figcaption>
+        </figure>
+      <% end %>
+    <% else  %>
+      <%= link_to '#', class:'no_underscore' do %>
+        <figure>
+          <%= image_tag("categories/#{cat.downcase}.jpg", alt: cat, class:'card-category') %>
+          <figcaption class='nice-font'><%= cat %></figcaption>
+        </figure>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
