@@ -9,15 +9,23 @@ class PagesController < ApplicationController
       { name: 'Meal', description: 'random description' },
       { name: 'Apartment', description: 'random description' },
       { name: 'Car', description: 'random description' },
+      { name: 'Beauty and hygiene', description: 'random description' },
+      { name: 'Entertainment and holidays', description: 'random description' },
       { name: 'Mobile and Internet', description: 'random description' },
       { name: 'Health', description: 'random description' },
       { name: 'Clothing', description: 'random description' },
-      { name: 'Beauty and hygiene', description: 'random description' },
       { name: 'Kids', description: 'random description' },
-      { name: 'Entertainment and holidays', description: 'random description' },
       { name: 'Other', description: 'random description' },
       { name: 'Repayment of debts', description: 'random description' },
       { name: 'Savings', description: 'random description' }
     ]
+
+    @categories_short = @categories.reject do |category|
+      category[:name].include?(' ')
+    end
+
+    @categories_long = @categories.select do |category|
+      category[:name].include?(' ')
+    end
   end
 end

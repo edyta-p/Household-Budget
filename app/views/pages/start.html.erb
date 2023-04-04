@@ -1,23 +1,20 @@
 <div class="background-color">
 <h3 class="centering">What kind of expense would you like to enter?</h3>
   <div class="grid-container">
-    <% @categories.each do |cat| %>
-      <% if cat[:name].include?(" ") %>
-        <% cat[:name] = cat[:name].gsub(" ", "_") %>
-        <%= link_to '#', class:'no_underscore' do %>
-          <figure>
-            <%= image_tag("categories/#{cat[:name].downcase}.jpg", alt: cat[:name], class:'card-category test') %>
-            <% cat[:name] = cat[:name].gsub("_", " ") %>
-            <figcaption class='nice-font'><%= cat[:name] %></figcaption>
-          </figure>
-        <% end %>
-      <% else  %>
-        <%= link_to '#', class:'no_underscore' do %>
-          <figure>
-            <%= image_tag("categories/#{cat[:name].downcase}.jpg", alt: cat[:name], class:'card-category') %>
-            <figcaption class='nice-font'><%= cat[:name] %></figcaption>
-          </figure>
-        <% end %>
+    <% @categories_short.each do |cat| %>
+      <%= link_to "#{cat[:name].downcase}s", class:'no_underscore' do %>
+        <figure>
+          <%= image_tag("categories/#{cat[:name].downcase}.jpg", alt: cat[:name], class:'card-category') %>
+          <figcaption class='nice-font'><%= cat[:name] %></figcaption>
+        </figure>
+      <% end %>
+    <% end %>
+    <% @categories_long.each do |cat| %>
+      <%= link_to "#{cat[:name].downcase}", class:'no_underscore' do %>
+        <figure>
+          <%= image_tag("categories/#{cat[:name].gsub(" ","_").downcase}.jpg", alt: cat[:name], class:'card-category test') %>
+          <figcaption class='nice-font'><%= cat[:name] %></figcaption>
+        </figure>
       <% end %>
     <% end %>
   </div>
