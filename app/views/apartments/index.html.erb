@@ -1,1 +1,13 @@
-<h1>These are apartment expenses</h1>
+<h1>Add a new expense 💸</h1>
+<%= simple_form_for @apartment do |f| %>
+  <%= f.input :category, collection: Apartment::CATEGORY %>
+  <%= f.input :date_of_purchase, as: :date, html5: true %>
+  <%= f.input :amount, placeholder: 'in euro' %>
+  <%= f.button :submit, 'Add expense' %>
+<% end %>
+<p>This is the cost:  </p>
+  <ul>
+    <% @apartments.each do |apartment| %>
+    <li><%= apartment.amount %></li>
+    <% end %>
+  </ul>

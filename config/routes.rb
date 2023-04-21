@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/start", to: "pages#start"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :apartments, only: %i[index create]
-  resources :meal, only: %i[new create]
+  resources :meals, only: %i[index create]
   resources :car, only: %i[new create]
   resources :mobile, only: %i[new create]
   resources :health, only: %i[new create]
