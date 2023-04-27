@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_145524) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_27_105348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,19 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_145524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_apartments_on_user_id"
-  end
-
-  create_table "beauties", force: :cascade do |t|
-    t.string "category"
-    t.float "amount"
-    t.string "currency", default: "€", null: false
-    t.datetime "date_of_purchase"
-    t.string "shop_name"
-    t.string "description"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_beauties_on_user_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -64,6 +51,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_145524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_clothings_on_user_id"
+  end
+
+  create_table "cosmetics", force: :cascade do |t|
+    t.string "category"
+    t.float "amount"
+    t.string "currency", default: "€", null: false
+    t.datetime "date_of_purchase"
+    t.string "shop_name"
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cosmetics_on_user_id"
   end
 
   create_table "entertainments", force: :cascade do |t|
@@ -183,9 +183,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_145524) do
   end
 
   add_foreign_key "apartments", "users"
-  add_foreign_key "beauties", "users"
   add_foreign_key "cars", "users"
   add_foreign_key "clothings", "users"
+  add_foreign_key "cosmetics", "users"
   add_foreign_key "entertainments", "users"
   add_foreign_key "healths", "users"
   add_foreign_key "kids", "users"

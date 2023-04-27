@@ -1,22 +1,22 @@
 // Specific CSS for your home-page
 .background-color {
-  background-color: rgb(255, 255, 255);
+  background-color: $white;
 }
 
 .navbar-picture-container {
   background-image: url("piggy_bank1.jpg");
   background-size: cover;
   padding: 300px 0;
-}
 
-#navbar-text {
-  width: 800px;
-  color: rgb(0, 0, 0);
-  padding-left: 80px;
-}
+  div {
+    width: 800px;
+    color: $black;
+    padding-left: 80px;
 
-#navbar-text p {
-  font-size: 1.5em;
+    p {
+      font-size: 1.5em;
+    }
+  }
 }
 
 .centering {
@@ -27,13 +27,12 @@
 .card-container {
   display: flex;
   justify-content: space-evenly;
-
 }
 
 .card-reason {
   width: 320px;
   height: 500px;
-  background-color: white;
+  background-color: $white;
   margin: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
@@ -41,22 +40,22 @@
   border-radius: 10px;
   // z-index: 2;
   overflow: hidden;
-}
 
-.card-picture {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  // z-index: 1;
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    // z-index: 1;
+  }
 }
 
 .card-info {
   padding-left: 16px;
   padding-right: 16px;
-}
 
-.card-info p {
-  margin: 8px 0;
+  p {
+    margin: 8px 0;
+  }
 }
 
 #p1 {
@@ -76,90 +75,51 @@
   width: 150px;
   height: 50px;
   border-radius: 25px;
-  background-color: #F7EBE7;
+  background-color: $button-color;
   border-width: 1.5px;
   margin: 50px 0;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   text-align: center;
   padding-top: 12.5px;
-  color: black;
+  color: $black;
   opacity: 0.7;
-}
+  text-decoration: none;
 
-.button-home:hover {
-  opacity: 1;
-  color:black;
+  &:hover {
+    opacity: 1;
+    color: $black;
+  }
 }
 
 .nice-font {
   font-family: 'Tillana', cursive;
 }
 
+// #navbar-text {
+//   width: 800px;
+//   color: rgb(0, 0, 0);
+//   padding-left: 80px;
+// }
 
-.grid-container {
-  margin: 0 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 24px 36px;
-}
-
-.card-category {
-  // background-image: url('categories/meal.jpg');
-  // background-color: greenyellow;
-  // background-size: cover;
-  width: 100%;
-  height: 240px;
-  // object-fit: fill;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  // background-size: cover;
-  // z-index: 1;
-}
+// #navbar-text p {
+//   font-size: 1.5em;
+// }
 
 
-figure {
-  display: flex;
-  flex-flow: column;
-  padding: 5px;
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  margin: 0 0 -1rem;
-}
-
-figure:hover {
-  transform: scale(1.05);
-}
-
-figcaption {
-  // background-color: black;
-  color: #000000;
-  background-color: rgba(255,255,255,0.7);
-  font-size: 20px;
-  text-align: center;
-  padding: 2px 14px;
-  margin: -150px 5px;
-}
+// .card-picture {
+//   width: 100%;
+//   height: 300px;
+//   object-fit: cover;
+//   // z-index: 1;
+// }
 
 
-.no_underscore {
-  text-decoration: none;
-}
+// .card-info p {
+//   margin: 8px 0;
+// }
 
-.container-navbar {
-  display: flex;
-  justify-content: space-between;
-}
 
-.button-login {
-  width: 150px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: #F7EBE7;
-  border-width: 1.5px;
-  margin: 50px 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  text-align: center;
-  padding-top: 12.5px;
-  color: black;
-  opacity: 0.7;
-}
+// .button-home:hover {
+//   opacity: 1;
+//   color:black;
+// }

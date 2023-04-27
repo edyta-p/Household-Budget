@@ -1,8 +1,8 @@
 <div class="centering background-color">
 <h3>Add a new expense 💸</h3>
   <div class="wrapper">
-  <%= simple_form_for @apartment do |f| %>
-    <%= f.input :category, collection: Apartment::CATEGORY, wrapper_html: {class: 'items-next'} %>
+  <%= simple_form_for @clothing do |f| %>
+    <%= f.input :category, collection: Clothing::CATEGORY, wrapper_html: {class: 'items-next'} %>
     <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'} %>
     <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'} %>
     <%= f.input :shop_name, wrapper_html: {class: 'items-next'} %>
@@ -13,7 +13,7 @@
 </div>
 <p>This is the cost:  </p>
   <ul>
-    <% @apartments.each do |apartment| %>
-    <li><%= apartment.amount %></li>
+    <% @clothings.each do |clothing| %>
+    <li><%= clothing.amount %></li>
     <% end %>
   </ul>

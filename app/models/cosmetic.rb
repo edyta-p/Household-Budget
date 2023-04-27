@@ -1,7 +1,7 @@
-class Car < ApplicationRecord
+class Cosmetic < ApplicationRecord
   belongs_to :user
 
-  CATEGORY = ['Fuel', 'Inspections and repairs', 'Additional equipment (e.g. tires)', 'Insurence', 'Public transport tickets', 'Train or bus ticket', 'Taxi', 'Motorway', 'Other']
+  CATEGORY = ['Cosmetics', 'Cleaning products', 'Hairdresser', 'Beauty treatments', 'Contact lenses', 'Hair accessories', 'Other']
 
   validates :category, presence: true, inclusion: { in: CATEGORY }
   validates :date_of_purchase, presence: true

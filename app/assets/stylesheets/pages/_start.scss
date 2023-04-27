@@ -1,0 +1,42 @@
+
+
+.grid-container {
+  margin: 0 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 24px 36px;
+}
+
+.card-category {
+  height: 240px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+
+figure {
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  width: 320px;
+  height: 280px;
+  object-fit: cover;
+  // margin: 0 0 -1rem;
+}
+
+figure:hover {
+  transform: scale(1.05);
+}
+
+figcaption {
+  color: $black;
+  background-color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  text-align: center;
+  padding: 2px 14px;
+  margin: -150px 5px;
+}
+
+
+.no_underscore {
+  text-decoration: none;
+}

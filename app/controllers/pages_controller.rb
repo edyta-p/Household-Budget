@@ -8,8 +8,8 @@ class PagesController < ApplicationController
     @categories = [
       { name: 'Meal', description: 'random description', display: 'Meals' },
       { name: 'Apartment', description: 'random description', display: 'Apartment' },
-      { name: 'Car', description: 'random description', display: 'Car' },
-      { name: 'Beauty', description: 'random description', display: 'Beauty and hygiene' },
+      { name: 'Car', description: 'random description', display: 'Cars' },
+      { name: 'Cosmetic', description: 'random description', display: 'Cosmetics and hygiene' },
       { name: 'Entertainment', description: 'random description', display: 'Entertainment and holidays' },
       { name: 'Mobile', description: 'random description', display: 'Mobile and Internet' },
       { name: 'Health', description: 'random description', display: 'Health' },
