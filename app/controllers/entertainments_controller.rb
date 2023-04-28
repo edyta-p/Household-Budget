@@ -18,11 +18,9 @@ class EntertainmentsController < ApplicationController
     end
   end
 
-
   private
 
   def entertainment_params
     params.require(:entertainment).permit(:category, :date_of_purchase, :amount)
   end
-
 end

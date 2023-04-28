@@ -11,12 +11,9 @@
   <% end %>
   </div>
 </div>
-<p class="centering">Here's your expenses:  </p>
-<%= link_to "here", search_entertainments_path %>
-    <div>
-      <% @entertainments.each do |entertainment| %>
-      <div class="card-display">
-        <span><%= entertainment.category  %>: </span><%= entertainment.amount %> <%= entertainment.currency %> <span>on <%= entertainment.date_of_purchase.to_date %></span>
-      </div>
-      <% end %>
-    </div>
+<p class="centering">Filter your expenses:  </p>
+
+<%= form_with url: search_entertainments_path, method: :get do %>
+  <%= select_tag :query, options_for_select(Entertainment::CATEGORY) %>
+  <%= submit_tag "Search", name: "" %>
+<% end %>
