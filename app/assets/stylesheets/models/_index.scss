@@ -22,14 +22,6 @@ input {
   margin-right: 60px;
 }
 
-#apartment_category {
-  margin-right: 60px;
-}
-
-#apartment_description {
-  margin-right: 60px;
-}
-
 .mx-1 {
   margin-right: 60px !important;
 }
@@ -55,4 +47,11 @@ input {
     border-width: 0px;
     border-color: $light-pink;
   }
+}
+
+.card-display {
+  width: 300px;
+  margin: 20px auto;
+  background-color: aquamarine;
+  padding: 10px;
 }

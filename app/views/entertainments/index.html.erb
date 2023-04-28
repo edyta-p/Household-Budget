@@ -11,9 +11,12 @@
   <% end %>
   </div>
 </div>
-<p>Here's your expenses:  </p>
-  <ul>
-    <% @entertainments.each do |entertainment| %>
-    <li><span><%= entertainment.category  %>: </span><%= entertainment.amount %> <%= entertainment.currency %> <span>on <%= entertainment.date_of_purchase.to_date %></span></li>
-    <% end %>
-  </ul>
+<p class="centering">Here's your expenses:  </p>
+<%= link_to "here", search_entertainments_path %>
+    <div>
+      <% @entertainments.each do |entertainment| %>
+      <div class="card-display">
+        <span><%= entertainment.category  %>: </span><%= entertainment.amount %> <%= entertainment.currency %> <span>on <%= entertainment.date_of_purchase.to_date %></span>
+      </div>
+      <% end %>
+    </div>

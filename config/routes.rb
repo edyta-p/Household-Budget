@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :clothings, only: %i[index create]
   resources :cosmetics, only: %i[index create]
   resources :kids, only: %i[index create]
-  resources :entertainments, only: %i[index create]
+  resources :entertainments, only: %i[index create] do
+    collection do
+      get :search
+    end
+  end
   resources :others, only: %i[index create]
   resources :repayments, only: %i[index create]
   resources :savings, only: %i[index create]

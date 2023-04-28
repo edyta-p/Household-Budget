@@ -1,0 +1,14 @@
+<p>We are in  search page</p>
+
+<%= form_with url: search_entertainments_path, method: :get do %>
+  <%= text_field_tag :query,
+        params[:query],
+        placeholder: "Type a keyword"
+    %>
+  <%= submit_tag "Search", name: "" %>
+<% end %>
+
+<% @entertainments.each do |e| %>
+  <%= e.category %>
+  <%= e.date_of_purchase %>
+<% end %>
