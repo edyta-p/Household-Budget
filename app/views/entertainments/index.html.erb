@@ -2,18 +2,13 @@
 <h3>Add a new expense 💸</h3>
   <div class="wrapper">
   <%= simple_form_for @entertainment do |f| %>
-    <%= f.input :category, collection: Entertainment::CATEGORY, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'} %>
+    <%= f.input :category, collection: Entertainment::CATEGORY, wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'}, required: true %>
     <%= f.input :shop_name, wrapper_html: {class: 'items-next'} %>
     <%= f.input :description, wrapper_html: {class: 'items-next'} %>
     <%= f.button :submit, 'Add expense', class: 'button-form' %>
   <% end %>
   </div>
+  <%= link_to "Filter your expenses", search_entertainments_path %>
 </div>
-<p class="centering">Filter your expenses:  </p>
-
-<%= form_with url: search_entertainments_path, method: :get do %>
-  <%= select_tag :query, options_for_select(Entertainment::CATEGORY) %>
-  <%= submit_tag "Search", name: "" %>
-<% end %>

@@ -1,9 +1,16 @@
-<p>We are in  search page</p>
-
-<% @entertainments.each do |entertainment| %>
-  <div class="card-display">
-    <%= entertainment.category %>
-    <%= entertainment.date_of_purchase %>
-    <%= entertainment.amount %>
+<p class="centering">Filter your expenses:  </p>
+<div>
+  <%= form_with url: search_entertainments_path, method: :get do %>
+    <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
+    <%= submit_tag "Search", name: "" %>
+  <% end %>
+  <div>
+    <% @entertainments.each do |entertainment| %>
+      <div class="card-display" >
+        <%= entertainment.category %>
+        <span>on: <%= entertainment.date_of_purchase.to_date %></span>
+        <span><%= entertainment.amount %> euro</span>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
