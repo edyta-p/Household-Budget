@@ -25,6 +25,6 @@ class EntertainmentsController < ApplicationController
   private
 
   def entertainment_params
-    params.require(:entertainment).permit(:category, :date_of_purchase, :amount)
+    params.require(:entertainment).permit(:category, :date_of_purchase, :amount, :shop_name, :description)
   end
 end
