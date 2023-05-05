@@ -10,10 +10,5 @@
     <%= f.button :submit, 'Add expense', class: 'button-form' %>
   <% end %>
   </div>
+<%= link_to "Filter your expenses", filter_mobiles_path %>
 </div>
-<p>This is the cost:  </p>
-  <ul>
-    <% @mobiles.each do |mobile| %>
-    <li><span><%= mobile.category  %>: </span><%= mobile.amount %> <span>on <%= mobile.date %></span></li>
-    <% end %>
-  </ul>

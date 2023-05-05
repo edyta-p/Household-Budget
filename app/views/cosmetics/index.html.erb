@@ -10,10 +10,5 @@
     <%= f.button :submit, 'Add expense', class: 'button-form' %>
   <% end %>
   </div>
+<%= link_to "Filter your expenses", filter_cosmetics_path %>
 </div>
-<p>This is the cost:  </p>
-  <ul>
-    <% @cosmetics.each do |cosmetic| %>
-    <li><%= cosmetic.amount %></li>
-    <% end %>
-  </ul>

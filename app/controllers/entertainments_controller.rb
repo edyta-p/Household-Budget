@@ -8,13 +8,13 @@ class EntertainmentsController < ApplicationController
     @entertainment.user = current_user
     if @entertainment.save
       flash.notice = "Expense created successfully"
+      redirect_to entertainments_path
     else
       flash.alert = "Expense not created. Fulfill all the required fields!"
     end
-    redirect_to entertainments_path
   end
 
-  def search
+  def filter
     @entertainments = []
     if params[:query].present?
       @entertainments = Entertainment.all

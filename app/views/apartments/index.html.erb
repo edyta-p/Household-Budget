@@ -10,10 +10,5 @@
     <%= f.button :submit, 'Add expense', class: 'button-form' %>
   <% end %>
   </div>
+<%= link_to "Filter your expenses", filter_apartments_path %>
 </div>
-<p>This is the cost:  </p>
-  <ul>
-    <% @apartments.each do |apartment| %>
-    <li><%= apartment.amount %></li>
-    <% end %>
-  </ul>

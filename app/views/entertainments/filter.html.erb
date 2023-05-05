@@ -1,7 +1,7 @@
 <div>
   <div class="centering">
     <p>Filter your expenses:  </p>
-    <%= form_with url: search_entertainments_path, method: :get do %>
+    <%= form_with url: filter_entertainments_path, method: :get do %>
       <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
       <%= submit_tag "Search", name: "", class: 'button-home-small' %>
     <% end %>
