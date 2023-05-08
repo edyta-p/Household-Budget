@@ -1,16 +1,41 @@
 class EntertainmentsController < ApplicationController
   def index
     @entertainment = Entertainment.new
+    # @entertainments = Entertainment.all
+    @entertainments = Entertainment.order(date_of_purchase: :desc).limit(6)
   end
 
   def create
     @entertainment = Entertainment.new(entertainment_params)
     @entertainment.user = current_user
-    if @entertainment.save
-      flash.notice = "Expense created successfully"
-      redirect_to entertainments_path
-    else
-      flash.alert = "Expense not created. Fulfill all the required fields!"
+    # @entertainments = Entertainment.all
+    @entertainments = Entertainment.order(date_of_purchase: :desc).limit(6)
+    # if @entertainment.save
+    #   flash.notice = "Expense created successfully"
+    #   redirect_to entertainments_path
+    # else
+    #   flash.alert = "Expense not created. Fulfill all the required fields!"
+    # end
+
+    respond_to do |format|
+      if @entertainment.save
+        flash.notice = "TURBO Expense created successfully"
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('new_entertainment',
+                                partial: 'form',
+                                locals: { entertainment: Entertainment.new }),
+            turbo_stream.update('entertainments',
+                                partial: 'entertainment',
+                                locals: { entertainment: @entertainment })]
+        end
+        format.html { redirect_to entertainments_path, notice: " HTML Expense created successfully" }
+      else
+        format.turbo_stream do
+          render turbo_stream: [turbo_stream.update('new_entertainment', partial: "form", locals: {entertainment: @entertainment})]
+        end
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
