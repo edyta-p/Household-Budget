@@ -6,5 +6,5 @@
       <%= submit_tag "Search", name: "", class: 'button-home-small' %>
     <% end %>
   </div>
-  <%= render "entertainment" %>
+  <%= render partial: "entertainment", locals: {entertainments: @entertainments} %>
 </div>

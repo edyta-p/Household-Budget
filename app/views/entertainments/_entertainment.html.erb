@@ -1,12 +1,5 @@
   <div class="grid-container-small">
-    <% @entertainments.each do |entertainment| %>
-      <div class="card-display" data-controller="search-cards">
-        <h5 class='nice-font'><%= entertainment.category %></h5>
-        <p>Amount: <%= entertainment.amount %> <%= entertainment.currency %></p>
-        <svg xmlns="http://www.w3.org/2000/svg" data-action="mouseover->search-cards#display mouseleave->search-cards#hide" viewBox="0 0 48 48" width="24px" height="24px"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M31.4,41c-2.3,1-4.8,1.5-7.4,1.5C13.8,42.5,5.5,34.2,5.5,24c0-4.5,1.6-8.6,4.2-11.8"/><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M16.3,7.2c2.3-1.1,5-1.7,7.7-1.7c10.2,0,18.5,8.3,18.5,18.5c0,4-1.3,7.7-3.4,10.7"/><circle cx="24" cy="16" r="2"/><line x1="24" x2="24" y1="22.5" y2="33.5" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/></svg>
-        <p  class="d-none left-align" data-search-cards-target="date">Date: <%= entertainment.date_of_purchase.to_date %></p>
-        <p class="d-none left-align" data-search-cards-target="shop">Shop name: <%= entertainment.shop_name %></p>
-        <p class="d-none left-align" data-search-cards-target="descr">Desc: <%= entertainment.description %></p>
-      </div>
+    <% entertainments.each do |entertainment| %>
+      <%= render "entertainment_info", entertainment: entertainment %>
     <% end %>
   </div>

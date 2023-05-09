@@ -19,7 +19,6 @@ class EntertainmentsController < ApplicationController
 
     respond_to do |format|
       if @entertainment.save
-        flash.notice = "TURBO Expense created successfully"
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.update('new_entertainment',
@@ -29,7 +28,7 @@ class EntertainmentsController < ApplicationController
                                 partial: 'entertainment',
                                 locals: { entertainment: @entertainment })]
         end
-        format.html { redirect_to entertainments_path, notice: " HTML Expense created successfully" }
+        format.html { redirect_to entertainments_path, notice: "Expense created successfully" }
       else
         format.turbo_stream do
           render turbo_stream: [turbo_stream.update('new_entertainment', partial: "form", locals: {entertainment: @entertainment})]

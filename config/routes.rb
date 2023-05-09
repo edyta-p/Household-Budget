@@ -43,7 +43,7 @@ end
       get :filter
     end
   end
-  resources :entertainments, only: %i[index create new show] do
+  resources :entertainments, only: %i[index create] do
     collection do
       get :filter
     end

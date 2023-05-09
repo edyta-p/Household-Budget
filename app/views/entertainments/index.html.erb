@@ -5,7 +5,7 @@
   <%= render partial: "form", locals: {entertainment: Entertainment.new} %>
 </div>
 <div id="entertainments">
-  <%= render "entertainment" %>
+  <%= render partial: "entertainment", locals: { entertainments: @entertainments } %>
 </div>
   <%= link_to "Filter your expenses", filter_entertainments_path %>
 </div>
