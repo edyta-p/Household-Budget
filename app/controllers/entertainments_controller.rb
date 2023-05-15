@@ -1,14 +1,14 @@
 class EntertainmentsController < ApplicationController
   def index
     @entertainment = Entertainment.new
-    # @entertainments = Entertainment.all
+    @entertainments = Entertainment.all
     @entertainments = Entertainment.order(date_of_purchase: :desc).limit(6)
   end
 
   def create
     @entertainment = Entertainment.new(entertainment_params)
     @entertainment.user = current_user
-    # @entertainments = Entertainment.all
+    @entertainments = Entertainment.all
     @entertainments = Entertainment.order(date_of_purchase: :desc).limit(6)
     # if @entertainment.save
     #   flash.notice = "Expense created successfully"
@@ -23,10 +23,10 @@ class EntertainmentsController < ApplicationController
           render turbo_stream: [
             turbo_stream.update('new_entertainment',
                                 partial: 'form',
-                                locals: { entertainment: Entertainment.new }),
+                                locals: { entertainment: Entertainment.new, entertainments: Entertainment.all }),
             turbo_stream.update('entertainments',
                                 partial: 'entertainment',
-                                locals: { entertainment: @entertainment })]
+                                locals: { entertainment: @entertainment, entertainments: @entertainments })]
         end
         format.html { redirect_to entertainments_path, notice: "Expense created successfully" }
       else
