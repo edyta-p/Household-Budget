@@ -1,5 +1,11 @@
-  <div class="grid-container-small">
-    <% entertainments.each do |entertainment| %>
-      <%= render "entertainment_info", entertainment: entertainment %>
-    <% end %>
-  </div>
+<div class="grid-container-small">
+  <% entertainments.each do |entertainment| %>
+    <div data-controller="search-cards">
+      <ul>
+        <li class="card-display">
+          <%= render "entertainment_info", entertainment: entertainment %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

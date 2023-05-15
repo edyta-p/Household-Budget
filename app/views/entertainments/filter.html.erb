@@ -1,10 +1,12 @@
 <div>
   <div class="centering">
     <p>Filter your expenses:  </p>
-    <%= form_with url: filter_entertainments_path, method: :get do %>
-      <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
-      <%= submit_tag "Search", name: "", class: 'button-home-small' %>
-    <% end %>
+    <div class="filter-flex">
+      <%= form_with url: filter_entertainments_path, method: :get do %>
+        <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
+        <%= submit_tag "Search", name: "", class: 'btn button-form' %>
+      <% end %>
+    </div>
   </div>
   <%= render partial: "entertainment", locals: {entertainments: @entertainments} %>
 </div>
