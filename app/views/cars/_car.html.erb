@@ -1,0 +1,11 @@
+<div class="grid-container-small">
+  <% cars.each do |car| %>
+    <div data-controller="search-cards">
+      <ul>
+        <li class="card-display">
+          <%= render "car_info", car: car %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

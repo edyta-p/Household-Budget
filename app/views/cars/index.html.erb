@@ -1,14 +1,11 @@
 <div class="centering background-color">
+<%= Time.zone.now %>
 <h3>Add a new expense 💸</h3>
-  <div class="wrapper">
-  <%= simple_form_for @car do |f| %>
-    <%= f.input :category, collection: Car::CATEGORY, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'} %>
-    <%= f.input :shop_name, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :description, wrapper_html: {class: 'items-next'} %>
-    <%= f.button :submit, 'Add expense', class: 'button-form' %>
-  <% end %>
-  </div>
-<%= link_to "Filter your expenses", filter_cars_path %>
+<div id="new_car">
+  <%= render partial: "form", locals: {car: Car.new} %>
+</div>
+<div id="cars">
+  <%= render partial: "car", locals: { cars: @cars } %>
+</div>
+  <%= link_to "Filter your expenses", filter_cars_path, class: 'btn button-form' %>
 </div>

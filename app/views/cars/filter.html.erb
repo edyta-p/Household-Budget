@@ -1,0 +1,13 @@
+<div>
+  <div class="centering">
+    <p>Filter your expenses:  </p>
+    <div class="filter-flex" data-controller= "flatpickr">
+      <%= form_with url: filter_cars_path, method: :get do %>
+        <%= select_tag :query, options_for_select(Car::CATEGORIES) %>
+        <%= date_field :date_field, class: 'flatpickr-input', data: { behavior: 'flatpickr' } %>
+        <%= submit_tag "Search", name: "", class: 'btn button-form' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render partial: "car", locals: {cars: @cars} %>
+</div>

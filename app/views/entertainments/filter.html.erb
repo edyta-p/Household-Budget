@@ -1,9 +1,10 @@
 <div>
   <div class="centering">
     <p>Filter your expenses:  </p>
-    <div class="filter-flex">
+    <div class="filter-flex" data-controller= "flatpickr">
       <%= form_with url: filter_entertainments_path, method: :get do %>
         <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
+        <%= date_field :date_field, class: 'flatpickr-input', data: { behavior: 'flatpickr' } %>
         <%= submit_tag "Search", name: "", class: 'btn button-form' %>
       <% end %>
     </div>
