@@ -2,3 +2,20 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.groupping {
+  width: 240px;
+  height: 60px;
+  background-color: $light-beige;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .datefield {
+    margin-left: 65px;
+    label {
+      padding-bottom: 32px;
+    };
+  }
+}

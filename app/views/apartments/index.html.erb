@@ -1,11 +1,17 @@
-<div class="centering background-color">
-<%= Time.zone.now %>
-<h3>Add a new expense 💸</h3>
-<div id="new_apartment">
-  <%= render partial: "form", locals: {apartment: Apartment.new} %>
-</div>
-<div id="apartments">
-  <%= render partial: "apartment", locals: { apartments: @apartments } %>
-</div>
+<div class="centering beige-background">
+  <div class="page-in-two">
+    <div id="new_apartment">
+      <h3 class="header2">Add a new expense 💸</h3>
+      <div>
+        <%= render partial: "form", locals: {apartment: Apartment.new} %>
+      </div>
+    </div>
+    <div id="apartments">
+      <h3 class="header2">🗒️ Your last expenses: </h3>
+      <div>
+        <%= render partial: "apartment", locals: { apartments: @apartments } %>
+      </div>
+    </div>
+  </div>
   <%= link_to "Filter your expenses", filter_apartments_path, class: 'btn button-form' %>
 </div>

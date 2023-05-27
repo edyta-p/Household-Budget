@@ -1,20 +1,19 @@
 <div>
   <div class="centering">
-    <p>Filter your expenses:  </p>
+    <h3 class="header2" id="header-filter">Filter your expenses:  </h3>
     <div>
       <%= form_with url: filter_apartments_path, method: :get, class: 'filter-flex' do %>
-        <%= select_tag :query, options_for_select(Apartment::CATEGORIES) %>
-        <div class='input-group date' id='picker1'>
-             <input type='text'/>
-             <span class="input-group-addon">
-             <span class="glyphicon glyphicon-calendar"></span>
-             </span>
+        <div class="groupping">
+          <%= label_tag :category, "Choose category:" %>
+          <%= select_tag :query, options_for_select(Apartment::CATEGORIES) %>
         </div>
-        <div class='input-group date' id='picker2'>
-             <input type='text'/>
-             <span class="input-group-addon">
-             <span class="glyphicon glyphicon-calendar"></span>
-             </span>
+        <div class="groupping">
+          <%= label_tag :date_from, "Date from:" %>
+          <%= date_field_tag :date_from, "date_from", class: "datefield" %>
+        </div>
+        <div class="groupping">
+          <%= label_tag :date_to, "Date to:" %>
+          <%= date_field_tag :date_to, "date_to", class: "datefield" %>
         </div>
         <%= submit_tag "Search", name: "", class: 'btn button-form' %>
       <% end %>
@@ -22,17 +21,4 @@
   </div>
   <%= render partial: "apartment", locals: {apartments: @apartments} %>
 </div>
-<script type="text/javascript">
-  $(function () {
-      $('#picker1').datetimepicker();
-      $('#picker2').datetimepicker({
-        useCurrent: false
-      });
-      $("#picker1").on("dp.change", function (e) {
-          $('#picker2').data("DateTimePicker").minDate(e.date);
-      });
-      $("#picker2").on("dp.change", function (e) {
-          $('#picker1').data("DateTimePicker").maxDate(e.date);
-      });
-  });
-</script>
+<%# <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> %>
