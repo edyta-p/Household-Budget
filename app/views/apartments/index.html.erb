@@ -1,14 +1,18 @@
 <div class="centering beige-background">
+  <div>
+  <h3>This month expenses: </h3>
+
+  </div>
   <div class="page-in-two">
-    <div id="new_apartment">
+    <div>
       <h3 class="header2">Add a new expense 💸</h3>
-      <div>
+      <div id="new_apartment">
         <%= render partial: "form", locals: {apartment: Apartment.new} %>
       </div>
     </div>
-    <div id="apartments">
+    <div>
       <h3 class="header2">🗒️ Your last expenses: </h3>
-      <div>
+      <div id="apartments">
         <%= render partial: "apartment", locals: { apartments: @apartments } %>
       </div>
     </div>

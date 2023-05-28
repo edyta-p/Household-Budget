@@ -7,6 +7,8 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.7",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
+    "chartkick": "^5.0.1",
     "flatpickr": "^4.6.13",
     "flowbite": "^1.6.4",
     "stimulus-flatpickr": "^1.4.0",
