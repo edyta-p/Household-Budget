@@ -1,7 +1,7 @@
 <div class="centering beige-background">
   <div>
   <h3>This month expenses: </h3>
-
+  <%= line_chart Apartment.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group_by_day(:date_of_purchase).sum(:amount) %>
   </div>
   <div class="page-in-two">
     <div>

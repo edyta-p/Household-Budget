@@ -22,6 +22,10 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.new
     @apartments = Apartment.all
     @apartments = Apartment.order(date_of_purchase: :desc).limit(6)
+    current_month = Time.now.month
+    current_year = Time.now.year
+    @beginning_of_month = Time.new(current_year, current_month, 1)
+    @end_of_month = (@beginning_of_month + 1.month) - 1
   end
 
   def create
