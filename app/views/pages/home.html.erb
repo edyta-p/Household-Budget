@@ -5,8 +5,8 @@
       <p>Plan your finances ahead.</p>
     </div>
   </div>
-  <h3 class='centering header2'>Why is it important to control the household budget?</h3>
-  <div class='card-container'>
+  <h3 class='centering header2'>Why is it important to <span id="typing"></span></h3>
+  <div class='card-container' data-controller="fading-in">
     <div class='card-reason'>
       <%= image_tag('expenses3.jpg', alt:'credit_card') %>
       <div class='card-info'>
@@ -40,3 +40,12 @@
     <%= link_to 'Start now!', '/start', class: 'button-home' %>
   </div>
 </div>
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed("#typing",{
+    strings: ["control your household budget?","keep track of household spending?","take control of your finances?"] ,
+    typeSpeed: 50,
+    backSpeed: 20,
+    loop: true
+    })
+</script>
