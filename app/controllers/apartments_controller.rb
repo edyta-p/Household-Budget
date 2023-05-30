@@ -63,9 +63,27 @@ class ApartmentsController < ApplicationController
 
   def filter
     @apartments = []
-    if params[:query].present?
+    if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @apartments = Apartment.all
-      @apartments = @apartments.where(category: params[:query]).order(:date_of_purchase)
+      @apartments = @apartments.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
+    elsif params[:query].present? && params[:date_from].present?
+      @apartments = Apartment.all
+      @apartments = @apartments.where('category = ? AND date_of_purchase >= ?', params[:query], params[:date_from]).order(:date_of_purchase)
+    elsif params[:query].present? && params[:date_to].present?
+      @apartments = Apartment.all
+      @apartments = @apartments.where('category = ? AND date_of_purchase <= ?', params[:query], params[:date_to]).order(:date_of_purchase)
+    elsif params[:date_from].present? && params[:date_to].present?
+      @apartments = Apartment.all
+      @apartments = @apartments.where(['date_of_purchase >= ? AND date_of_purchase <= ?', params[:date_from], params[:date_to]]).order(:date_of_purchase)
+    elsif params[:date_from].present?
+      @apartments = Apartment.all
+      @apartments = @apartments.where('date_of_purchase >= ?', params[:date_from]).order(:date_of_purchase)
+    elsif params[:date_to].present?
+      @apartments = Apartment.all
+      @apartments = @apartments.where('date_of_purchase <= ?', params[:date_to]).order(:date_of_purchase)
+    else
+      @apartments = Apartment.all
+      @apartments = @apartments.where('category = ?', params[:query]).order(:date_of_purchase)
     end
   end
 
