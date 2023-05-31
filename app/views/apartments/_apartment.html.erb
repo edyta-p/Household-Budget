@@ -1,11 +1,9 @@
-<div class="grid-container-small">
-  <% apartments.each do |apartment| %>
-    <div data-controller="search-cards">
-      <ul>
-        <li class="card-display">
-          <%= render "apartment_info", apartment: apartment %>
-        </li>
-      </ul>
-    </div>
-  <% end %>
-</div>
+<% apartments.each do |apartment| %>
+  <div data-controller="search-cards" class="card-display">
+    <%# <ul> %>
+      <%# <li class="card-display"> %>
+        <%= render "apartment_info", apartment: apartment %>
+      <%# </li> %>
+    <%# </ul> %>
+  </div>
+<% end %>

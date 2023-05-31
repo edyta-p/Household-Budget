@@ -1,14 +1,14 @@
-<div class="centering light-beige-background">
+<div class="centering beige-background">
   <div>
     <h3 class="header2"> 📉📈 This month expenses by date: </h3>
     <div class="chart">
-      <%= line_chart Apartment.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group_by_day(:date_of_purchase).sum(:amount), refresh: 60, empty: "No data",  ytitle: "Total [€]", points: false, colors: ["#927c80", "#000000"], width: "1400px", height: "500px" %>
+      <%= line_chart Apartment.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group_by_day(:date_of_purchase).sum(:amount), refresh: 60, empty: "No data",  ytitle: "Total [€]", points: false, colors: ["#025464", "#000000"], width: "1400px", height: "500px" %>
     </div>
   </div>
   <div>
     <h3 class="header2"> 📊 This month expenses by category: </h3>
     <div class="chart">
-      <%= bar_chart Apartment.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group(:category).sum(:amount), refresh: 60, empty: "No data", colors: ["#927c80", "#000000"], xtitle: "Total [€]",  ytitle: "Category", width: "1400px", height: "500px" %>
+      <%= bar_chart Apartment.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group(:category).sum(:amount), refresh: 60, empty: "No data", colors: ["#025464", "#000000"], xtitle: "Total [€]",  ytitle: "Category", width: "1400px", height: "500px" %>
     </div>
   </div>
   <div class="page-in-two">
@@ -21,7 +21,9 @@
     <div>
       <h3 class="header2">🗒️ Your last expenses: </h3>
       <div id="apartments">
-        <%= render partial: "apartment", locals: { apartments: @apartments } %>
+        <div class="grid-container-small">
+          <%= render partial: "apartment", locals: { apartments: @apartments } %>
+        </div>
       </div>
     </div>
   </div>

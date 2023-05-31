@@ -3,23 +3,52 @@
   justify-content: space-evenly;
 }
 
+.filter-center {
+  padding: 30px 0px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 .groupping {
-  width: 240px;
-  height: 60px;
-  background-color: $light-beige;
+  width: 1000px;
+  height: 72px;
+  background-color: $light-gray;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   .datefield {
-    margin-left: 65px;
-    label {
-      padding-bottom: 32px;
+      margin-left: -45px;
     };
+
+  .submit {
+    margin-right: 48px;
+    margin-top: 6px;
   }
 }
 
 #filter-link{
   margin-top: 25px;
+}
+
+.grid-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+h5 {
+  line-height: normal;
+}
+
+.icon{
+  color: $navy;
+}
+
+.height-100{
+  height: auto;
 }

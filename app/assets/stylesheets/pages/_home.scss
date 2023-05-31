@@ -22,6 +22,10 @@
 .centering {
   padding: 30px 0px;
   text-align: center;
+  // display: flex;
+  // justify-content: center;
+  // // flex-direction: column;
+  // align-items: center;
 }
 
 .card-container {
@@ -30,6 +34,7 @@
 }
 
 .card-reason {
+  opacity:0.2;
   width: 320px;
   height: 500px;
   background-color: $white;
@@ -94,6 +99,9 @@
   font-family: 'Tillana', cursive;
 }
 
+.display-true {
+  opacity: 1;
+}
 // #navbar-text {
 //   width: 800px;
 //   color: rgb(0, 0, 0);

@@ -50,16 +50,17 @@ input {
 }
 
 .card-display {
-  height: 60px;
-  margin: 10px 15px;
+  height: auto;
+  margin: 10px 15px 10px;
   background-color: $white;
-  padding: 15px;
+  padding: 16px 8px;
   display: flex;
   flex-direction: row;
   border-radius: 10px;
   justify-content: space-around;
   gap: 30px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  vertical-align: middle;
 
   svg {
     margin-top: 8px;
@@ -122,4 +123,8 @@ i {
   display: flex;
   justify-content: center;
   margin: 48px 0 48px;
+}
+
+p {
+  margin: 0px;
 }

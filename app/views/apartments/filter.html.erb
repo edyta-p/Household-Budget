@@ -1,23 +1,28 @@
-<div>
-  <div class="centering">
+<div class="beige-background height-100">
+  <div class="filter-center">
     <h3 class="header2" id="header-filter">Filter your expenses:  </h3>
-    <div>
+    <div class="groupping">
       <%= form_with url: filter_apartments_path, method: :get, class: 'filter-flex' do %>
-        <div class="groupping">
+        <div>
           <%= label_tag :category, "Choose category:" %>
           <%= select_tag :query, options_for_select(Apartment::CATEGORIES) %>
         </div>
-        <div class="groupping">
-          <%= label_tag :date_from, "Date from:" %>
-          <%= date_field_tag :date_from, "date_from", class: "datefield" %>
+        <div>
+          <%= label_tag :date_from, "Date from:", class: 'datefield' %>
+          <%= date_field_tag :date_from, "date_from" %>
         </div>
-        <div class="groupping">
-          <%= label_tag :date_to, "Date to:" %>
-          <%= date_field_tag :date_to, "date_to", class: "datefield" %>
+        <div>
+          <%= label_tag :date_to, "Date to:", class: 'datefield' %>
+          <%= date_field_tag :date_to, "date_to"  %>
         </div>
-        <%= submit_tag "Search", name: "", class: 'btn button-form' %>
+        <div>
+          <%= submit_tag "Search", name: "", class: 'btn button-form submit' %>
+        </div>
       <% end %>
     </div>
   </div>
-  <%= render partial: "apartment", locals: {apartments: @apartments} %>
+  <div class="grid-filter">
+    <%= render partial: "apartment", locals: {apartments: @apartments} %>
+  </div>
+  <p>total is: <%= @total %></p>
 </div>
