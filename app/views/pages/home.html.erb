@@ -7,37 +7,45 @@
   </div>
   <h3 class='centering header2'>Why is it important to <span id="typing"></span></h3>
   <div class='card-container' data-controller="fading-in" data-action="scroll@window->fading-in#update">
-    <div class='card-reason' data-fading-in-target="card1">
-      <%= image_tag('expenses3.jpg', alt:'credit_card') %>
-      <div class='card-info'>
-        <p><strong class="header2">It helps track expenses</strong></p>
-        <p id='p1'>Creating and following a household budget helps you track <span class='nice-font'>your income</span> and expenses. This way, you can see exactly how much you're spending and where you're spending it.</p>
+    <div id="diamond1">
+      <div class='card-reason' id="card1" data-fading-in-target="card1">
+        <%= image_tag('expenses3.jpg', alt:'credit_card') %>
+        <div class='card-info'>
+          <p><strong class="header2">It helps track expenses</strong></p>
+          <p id='p1'>Creating and following a household budget helps you track <span class='nice-font'>your income</span> and expenses. This way, you can see exactly how much you're spending and where you're spending it.</p>
+        </div>
       </div>
     </div>
-    <div class='card-reason' data-fading-in-target="card2">
-      <%= image_tag('calendar.jpg', alt:'calendar') %>
-      <div class='card-info'>
-        <p><strong class="header2">It helps plan the future</strong></p>
-        <p id='p2'>By tracking your expenses, you can identify areas where you can cut back on spending and <span class='nice-font'>save more money</span>. This can help you plan for the future and achieve your financial goals.</p>
+    <div id="diamond2">
+      <div class='card-reason' id="card2" data-fading-in-target="card2">
+        <%= image_tag('calendar.jpg', alt:'calendar') %>
+        <div class='card-info'>
+          <p><strong class="header2">It helps plan the future</strong></p>
+          <p id='p2'>By tracking your expenses, you can identify areas where you can cut back on spending and <span class='nice-font'>save more money</span>. This can help you plan for the future and achieve your financial goals.</p>
+        </div>
       </div>
     </div>
-    <div class='card-reason' data-fading-in-target="card3">
-      <%= image_tag('enjoy.jpg', alt:'enjoy little things') %>
-      <div class='card-info'>
-        <p><strong class="header2">It helps prioritize spending</strong></p>
-        <p id='p3'>A budget helps you <span class='nice-font'>prioritize your spending</span> and ensure that your money is going toward the things that are most important to you.</p>
+    <div id="diamond3">
+      <div class='card-reason' id="card3" data-fading-in-target="card3">
+        <%= image_tag('enjoy.jpg', alt:'enjoy little things') %>
+        <div class='card-info'>
+          <p><strong class="header2">It helps prioritize spending</strong></p>
+          <p id='p3'>A budget helps you <span class='nice-font'>prioritize your spending</span> and ensure that your money is going toward the things that are most important to you.</p>
+        </div>
       </div>
     </div>
-    <div class='card-reason' data-fading-in-target="card4">
-      <%= image_tag('coins.jpg', alt:'coins') %>
-      <div class='card-info'>
-        <p ><strong class="header2">It helps reduce debt</strong></p>
-        <p id='p4'>A budget can help you identify areas where you may be overspending, which can help you reduce your debt and <span class='nice-font'>increase your savings</span>.</p>
+    <div id="diamond4">
+      <div class='card-reason' id="card4" data-fading-in-target="card4">
+        <%= image_tag('coins.jpg', alt:'coins') %>
+        <div class='card-info'>
+          <p ><strong class="header2">It helps reduce debt</strong></p>
+          <p id='p4'>A budget can help you identify areas where you may be overspending, which can help you reduce your debt and <span class='nice-font'>increase your savings</span>.</p>
+        </div>
       </div>
     </div>
   </div>
   <div class='items-center'>
-    <%= link_to 'Start now!', '/start', class: 'button-home' %>
+    <%= link_to 'Start now!', '/start', class: 'button-home', id:'home-button' %>
   </div>
 </div>
 <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
