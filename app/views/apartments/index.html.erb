@@ -1,4 +1,4 @@
-<div class="centering beige-background">
+<div class="centering gray-background">
   <div>
     <h3 class="header2"> 📉📈 This month expenses by date: </h3>
     <div class="chart">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div>
-      <h3 class="header2">🗒️ Your last expenses: </h3>
+      <h3 class="header2">🗒️ Your most recent expenses: </h3>
       <div id="apartments">
         <div class="grid-container-small">
           <%= render partial: "apartment", locals: { apartments: @apartments } %>
@@ -28,5 +28,5 @@
     </div>
   </div>
 
-    <%= link_to "Filter your expenses", filter_apartments_path, class: 'btn button-form', id: 'filter-link' %>
+    <%= link_to "Filter your expenses", filter_apartments_path, class: 'button-form', id: 'filter-link' %>
 </div>

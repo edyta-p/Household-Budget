@@ -1,7 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id="navbarSupportedContent">
   <% if user_signed_in? %>
-    <div class="nav-item active">
-      <%= link_to "Home", root_path, class: "nav-link" %>
+    <div class="small-navbar-container">
+      <div class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link", id: 'home-link' %>
+      </div>
+      <div class="nav-item active">
+        <%= link_to "Categories", start_path, class: "nav-link", id: 'home-link' %>
+      </div>
+      <div class="nav-item active">
+        <%= link_to "About me", "#footer", class: "nav-link", id: 'home-link' %>
+      </div>
     </div>
     <div class="nav-item dropdown">
       <%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

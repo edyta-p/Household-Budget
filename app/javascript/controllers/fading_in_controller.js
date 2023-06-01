@@ -11,21 +11,21 @@ export default class extends Controller {
   }
   update(){
     window.addEventListener('scroll',(event) => {
-      if (window.scrollY > 500) {
+      if (window.scrollY > 600) {
         this.card1Target.classList.add('display-true');
-        this.card1Target.classList.add('slide-from-right');
+        // this.card1Target.classList.add('slide-from-right');
         setTimeout(() => {
           this.card2Target.classList.add('display-true');
-          this.card2Target.classList.add('slide-from-left');
-        }, 1000);
+          // this.card2Target.classList.add('slide-from-left');
+        }, 1500);
         setTimeout(() => {
           this.card3Target.classList.add('display-true');
-          this.card3Target.classList.add('slide-from-right');
-        }, 2000);
+          // this.card3Target.classList.add('slide-from-right');
+        }, 3000);
         setTimeout(() => {
           this.card4Target.classList.add('display-true');
-          this.card4Target.classList.add('slide-from-left');
-        }, 3000);
+          // this.card4Target.classList.add('slide-from-left');
+        }, 4500);
       }
     })
   }

@@ -1,6 +1,8 @@
 .filter-flex {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
 }
 
 .filter-center {
@@ -13,9 +15,11 @@
 }
 
 .groupping {
-  width: 1000px;
-  height: 72px;
-  background-color: $light-gray;
+  min-width: 20vw;
+  width: auto;
+  height: auto;
+  padding: 10px 0px;
+  background-color: $white;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
@@ -50,5 +54,36 @@ h5 {
 }
 
 .height-100{
-  height: auto;
+  height: 100vh;
+}
+
+#total {
+  background-color: $white;
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  margin: 50px auto 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row-filter {
+  align-self: flex-start;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 550px;
+  min-width: 50vw;
+  margin-right: 600px;
+}
+
+#arrow {
+  color: $navy;
+  :hover {
+    color: $button-color;
+  }
 }
