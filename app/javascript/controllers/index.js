@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DisableButtonController from "./disable_button_controller"
+application.register("disable-button", DisableButtonController)
+
 import FadingInController from "./fading_in_controller"
 application.register("fading-in", FadingInController)
 

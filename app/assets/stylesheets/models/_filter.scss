@@ -51,6 +51,19 @@ h5 {
 
 .icon{
   color: $navy;
+  border-width: 0;
+  :disabled {
+    color: grey;
+  }
+}
+
+button {
+  border-width: 0;
+  background-color: transparent;
+}
+
+.disabled {
+  color: grey;
 }
 
 .height-100{

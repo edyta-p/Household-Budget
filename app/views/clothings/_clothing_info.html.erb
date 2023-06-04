@@ -1,13 +1,13 @@
 <p class='card-font'><strong><%= clothing.category %></strong></p>
 <p class='card-font'><strong>Amount: </strong><%= clothing.amount %> <%= clothing.currency %></p>
-<%= link_to "#", data: {action: "click->search-cards#display"} do %>
-  <%# <i class="fa fa-thin fa-circle-info"></i> %>
-  <i class="fa fa-solid fa-circle-info fa-lg icon"></i>
-<% end %>
-<%= link_to "#", data: {action: "click->search-cards#hide"} do %>
-  <i class="fa fa-sharp fa-regular fa-eye-slash icon"></i>
-  <%# <i class="fa-sharp fa-regular fa-square-minus"></i> %>
-<% end %>
+  <%= button_tag "#", data: {disable_button_target: "info", action: "click->search-cards#display click->disable-button#disableInfo"}, id: "info" do %>
+    <%# <i class="fa fa-thin fa-circle-info"></i> %>
+    <i class="fa fa-solid fa-circle-info fa-lg icon" data-disable-button-target="infoIcon"></i>
+  <% end %>
+  <%= button_tag "#", data: {disable_button_target: "eye", action: "click->search-cards#hide click->disable-button#disableEye"}, id: "eye", disabled: true do %>
+    <i class="fa fa-sharp fa-regular fa-eye-slash icon disabled" data-disable-button-target="eyeIcon"></i>
+    <%# <i class="fa-sharp fa-regular fa-square-minus"></i> %>
+  <% end %>
 <div class="d-none left-align flex-info" data-search-cards-target="info">
   <%# <svg xmlns="http://www.w3.org/2000/svg" data-action="click->search-cards#display click->search-cards#hide" viewBox="0 0 48 48" width="24px" height="24px"><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M31.4,41c-2.3,1-4.8,1.5-7.4,1.5C13.8,42.5,5.5,34.2,5.5,24c0-4.5,1.6-8.6,4.2-11.8"/><path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M16.3,7.2c2.3-1.1,5-1.7,7.7-1.7c10.2,0,18.5,8.3,18.5,18.5c0,4-1.3,7.7-3.4,10.7"/><circle cx="24" cy="16" r="2"/><line x1="24" x2="24" y1="22.5" y2="33.5" fill="none" stroke="#000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="3"/></svg> %>
   <p class='card-font wrap'><strong>Date: </strong><%= clothing.date_of_purchase.to_date %></p>

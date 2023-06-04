@@ -1,5 +1,5 @@
 <% apartments.each do |apartment| %>
-  <div data-controller="search-cards" class="card-display">
+  <div data-controller="search-cards disable-button" class="card-display">
     <%# <ul> %>
       <%# <li class="card-display"> %>
         <%= render "apartment_info", apartment: apartment %>
