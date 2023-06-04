@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <%= simple_form_for saving do |f| %>
+    <%= f.input :category, collection: Saving::CATEGORY, wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :date_of_transaction, as: :date, html5: true, wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :placement, wrapper_html: {class: 'items-next'} %>
+    <%= f.input :description, wrapper_html: {class: 'items-next'} %>
+    <%= f.button :submit, 'Add expense', class: 'button-form' %>
+  <% end %>
+</div>

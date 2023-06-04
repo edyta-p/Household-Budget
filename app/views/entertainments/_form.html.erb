@@ -1,10 +1,10 @@
-  <div class="wrapper">
-    <%= simple_form_for entertainment do |f| %>
-      <%= f.input :category, collection: Entertainment::CATEGORY, wrapper_html: {class: 'items-next'}, required: true %>
-      <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'}, required: true %>
-      <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'}, required: true %>
-      <%= f.input :shop_name, wrapper_html: {class: 'items-next'} %>
-      <%= f.input :description, wrapper_html: {class: 'items-next'} %>
-      <%= f.button :submit, 'Add expense', class: 'button-form' %>
-    <% end %>
-  </div>
+<div class="wrapper">
+  <%= simple_form_for entertainment do |f| %>
+    <%= f.input :category, collection: Entertainment::CATEGORY, wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'}, required: true %>
+    <%= f.input :shop_name, wrapper_html: {class: 'items-next'} %>
+    <%= f.input :description, wrapper_html: {class: 'items-next'} %>
+    <%= f.button :submit, 'Add expense', class: 'button-form' %>
+  <% end %>
+</div>

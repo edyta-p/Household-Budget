@@ -3,6 +3,10 @@ class EntertainmentsController < ApplicationController
     @entertainment = Entertainment.new
     @entertainments = Entertainment.all
     @entertainments = Entertainment.order(date_of_purchase: :desc).limit(6)
+    current_month = Time.now.month
+    current_year = Time.now.year
+    @beginning_of_month = Time.new(current_year, current_month, 1)
+    @end_of_month = (@beginning_of_month + 1.month) - 1
   end
 
   def create
@@ -40,10 +44,44 @@ class EntertainmentsController < ApplicationController
 
   def filter
     @entertainments = []
-    if params[:query].present?
+    @currency = currency
+    if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @entertainments = Entertainment.all
-      @entertainments = @entertainments.where(category: params[:query]).order(:date_of_purchase)
+      @entertainments = @entertainments.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
+      @total = total
+    elsif params[:query].present? && params[:date_from].present?
+      @entertainments = Entertainment.all
+      @entertainments = @entertainments.where('category = ? AND date_of_purchase >= ?', params[:query], params[:date_from]).order(:date_of_purchase)
+      @total = total
+    elsif params[:query].present? && params[:date_to].present?
+      @entertainments = Entertainment.all
+      @entertainments = @entertainments.where('category = ? AND date_of_purchase <= ?', params[:query], params[:date_to]).order(:date_of_purchase)
+      @total = total
+    elsif params[:date_from].present? && params[:date_to].present?
+      @entertainments = Entertainment.all
+      @entertainments = @entertainments.where(['date_of_purchase >= ? AND date_of_purchase <= ?', params[:date_from], params[:date_to]]).order(:date_of_purchase)
+      @total = total
+    elsif params[:date_from].present?
+      @entertainments = Entertainment.all
+      @entertainments = @entertainments.where('date_of_purchase >= ?', params[:date_from]).order(:date_of_purchase)
+      @total = total
+    elsif params[:date_to].present?
+      @entertainments = Entertainment.all
+      @entertainments = @entertainments.where('date_of_purchase <= ?', params[:date_to]).order(:date_of_purchase)
+      @total = total
+    else
+      @entertainments = Entertainment.all
+      @entertainments = @entertainments.where('category = ?', params[:query]).order(:date_of_purchase)
+      @total = total
     end
+  end
+
+  def total
+    @entertainments.sum(:amount)
+  end
+
+  def currency
+    Entertainment.first.currency
   end
 
   private

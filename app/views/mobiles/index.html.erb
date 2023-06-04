@@ -1,14 +1,32 @@
-<div class="centering background-color">
-<h3>Add a new expense 💸</h3>
-  <div class="wrapper">
-  <%= simple_form_for @mobile do |f| %>
-    <%= f.input :category, collection: Mobile::CATEGORY, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :date_of_purchase, as: :date, html5: true, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :amount, placeholder: 'in euro', wrapper_html: {class: 'items-next'} %>
-    <%= f.input :shop_name, wrapper_html: {class: 'items-next'} %>
-    <%= f.input :description, wrapper_html: {class: 'items-next'} %>
-    <%= f.button :submit, 'Add expense', class: 'button-form' %>
-  <% end %>
+<div class="centering gray-background">
+  <div>
+    <h3 class="header2"> 📉📈 This month expenses by date: </h3>
+    <div class="chart">
+      <%= line_chart Mobile.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group_by_day(:date_of_purchase).sum(:amount), refresh: 60, empty: "No data",  ytitle: "Total [€]", points: false, colors: ["#025464", "#000000"], width: "1400px", height: "500px" %>
+    </div>
   </div>
-<%= link_to "Filter your expenses", filter_mobiles_path %>
+  <div>
+    <h3 class="header2"> 📊 This month expenses by category: </h3>
+    <div class="chart">
+      <%= bar_chart Mobile.where('date_of_purchase BETWEEN ? AND ?', @beginning_of_month, @end_of_month).group(:category).sum(:amount), refresh: 60, empty: "No data", colors: ["#025464", "#000000"], xtitle: "Total [€]",  ytitle: "Category", width: "1400px", height: "500px" %>
+    </div>
+  </div>
+  <div class="page-in-two">
+    <div>
+      <h3 class="header2">Add a new expense 💸</h3>
+      <div id="new_mobile">
+        <%= render partial: "form", locals: {mobile: Mobile.new} %>
+      </div>
+    </div>
+    <div>
+      <h3 class="header2">🗒️ Your most recent expenses: </h3>
+      <div id="mobiles">
+        <div class="grid-container-small">
+          <%= render partial: "mobile", locals: { mobiles: @mobiles } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <%= link_to "Filter your expenses", filter_mobiles_path, class: 'button-form', id: 'filter-link' %>
 </div>

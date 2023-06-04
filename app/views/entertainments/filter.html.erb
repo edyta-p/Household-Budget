@@ -1,13 +1,35 @@
-<div>
-  <div class="centering">
-    <p>Filter your expenses:  </p>
-    <div class="filter-flex" data-controller= "flatpickr">
-      <%= form_with url: filter_entertainments_path, method: :get do %>
-        <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
-        <%= date_field :date_field, class: 'flatpickr-input', data: { behavior: 'flatpickr' } %>
-        <%= submit_tag "Search", name: "", class: 'btn button-form' %>
+<div class="gray-background height-100 flex-container">
+  <div class="filter-center">
+    <div class="flex-row-filter">
+      <%= link_to entertainments_path, id: "arrow" do %>
+        <i class="fa-solid fa-arrow-left-long fa-2xl"></i>
+      <% end %>
+      <h3 class="header2" id="header-filter">Filter your expenses:  </h3>
+    </div>
+    <div>
+      <%= form_with url: filter_entertainments_path, method: :get, class: 'filter-flex' do %>
+      <div class="groupping">
+          <div>
+            <%= label_tag :category, "Choose category:" %>
+            <%= select_tag :query, options_for_select(Entertainment::CATEGORIES) %>
+          </div>
+          <div>
+            <%= label_tag :date_from, "Date from:", class: 'datefield' %>
+            <%= date_field_tag :date_from, "date_from" %>
+          </div>
+          <div>
+            <%= label_tag :date_to, "Date to:", class: 'datefield' %>
+            <%= date_field_tag :date_to, "date_to"  %>
+          </div>
+        </div>
+        <div>
+          <%= submit_tag "Search", name: "", class: 'button-form' %>
+        </div>
       <% end %>
     </div>
   </div>
-  <%= render partial: "entertainment", locals: {entertainments: @entertainments} %>
+  <div class="grid-filter">
+    <%= render partial: "entertainment", locals: {entertainments: @entertainments} %>
+  </div>
+  <div id="total" class="groupping"><p>Total: </p><%= @total %><%= @currency %></div>
 </div>

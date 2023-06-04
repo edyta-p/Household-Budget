@@ -1,0 +1,9 @@
+<% kids.each do |kid| %>
+  <div data-controller="search-cards" class="card-display">
+    <%# <ul> %>
+      <%# <li class="card-display"> %>
+        <%= render "kid_info", kid: kid %>
+      <%# </li> %>
+    <%# </ul> %>
+  </div>
+<% end %>

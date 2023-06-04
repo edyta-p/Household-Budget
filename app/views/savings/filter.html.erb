@@ -1,0 +1,35 @@
+<div class="gray-background height-100 flex-container">
+  <div class="filter-center">
+    <div class="flex-row-filter">
+      <%= link_to savings_path, id: "arrow" do %>
+        <i class="fa-solid fa-arrow-left-long fa-2xl"></i>
+      <% end %>
+      <h3 class="header2" id="header-filter">Filter your expenses:  </h3>
+    </div>
+    <div>
+      <%= form_with url: filter_savings_path, method: :get, class: 'filter-flex' do %>
+      <div class="groupping">
+          <div>
+            <%= label_tag :category, "Choose category:" %>
+            <%= select_tag :query, options_for_select(Saving::CATEGORIES) %>
+          </div>
+          <div>
+            <%= label_tag :date_from, "Date from:", class: 'datefield' %>
+            <%= date_field_tag :date_from, "date_from" %>
+          </div>
+          <div>
+            <%= label_tag :date_to, "Date to:", class: 'datefield' %>
+            <%= date_field_tag :date_to, "date_to"  %>
+          </div>
+        </div>
+        <div>
+          <%= submit_tag "Search", name: "", class: 'button-form' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="grid-filter">
+    <%= render partial: "saving", locals: {savings: @savings} %>
+  </div>
+  <div id="total" class="groupping"><p>Total: </p><%= @total %><%= @currency %></div>
+</div>

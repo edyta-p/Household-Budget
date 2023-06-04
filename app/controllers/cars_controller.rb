@@ -22,6 +22,10 @@ class CarsController < ApplicationController
     @car = Car.new
     @cars = Car.all
     @cars = Car.order(date_of_purchase: :desc).limit(6)
+    current_month = Time.now.month
+    current_year = Time.now.year
+    @beginning_of_month = Time.new(current_year, current_month, 1)
+    @end_of_month = (@beginning_of_month + 1.month) - 1
   end
 
   def create
@@ -59,10 +63,44 @@ class CarsController < ApplicationController
 
   def filter
     @cars = []
-    if params[:query].present?
+    @currency = currency
+    if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @cars = Car.all
-      @cars = @cars.where(category: params[:query]).order(:date_of_purchase)
+      @cars = @cars.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
+      @total = total
+    elsif params[:query].present? && params[:date_from].present?
+      @cars = Car.all
+      @cars = @cars.where('category = ? AND date_of_purchase >= ?', params[:query], params[:date_from]).order(:date_of_purchase)
+      @total = total
+    elsif params[:query].present? && params[:date_to].present?
+      @cars = Car.all
+      @cars = @cars.where('category = ? AND date_of_purchase <= ?', params[:query], params[:date_to]).order(:date_of_purchase)
+      @total = total
+    elsif params[:date_from].present? && params[:date_to].present?
+      @cars = Car.all
+      @cars = @cars.where(['date_of_purchase >= ? AND date_of_purchase <= ?', params[:date_from], params[:date_to]]).order(:date_of_purchase)
+      @total = total
+    elsif params[:date_from].present?
+      @cars = Car.all
+      @cars = @cars.where('date_of_purchase >= ?', params[:date_from]).order(:date_of_purchase)
+      @total = total
+    elsif params[:date_to].present?
+      @cars = Car.all
+      @cars = @cars.where('date_of_purchase <= ?', params[:date_to]).order(:date_of_purchase)
+      @total = total
+    else
+      @cars = Car.all
+      @cars = @cars.where('category = ?', params[:query]).order(:date_of_purchase)
+      @total = total
     end
+  end
+
+  def total
+    @cars.sum(:amount)
+  end
+
+  def currency
+    Car.first.currency
   end
 
   private
