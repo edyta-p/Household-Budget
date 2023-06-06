@@ -103,7 +103,28 @@
     font-size: small;
   }
 
+  .wrapper {
+    width: 90vw;  }
 
+  .page-in-two, .flex-info, .card-display {
+    flex-direction: column;
+  }
+  .page-in-two {
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .wrap {
+    word-wrap: normal;
+    max-width: 90%;
+  }
+
+  .left-align {
+    text-align: center;
+  }
 }
 
 @media (min-width:400px) and (max-width: 800px) {
