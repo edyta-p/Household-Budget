@@ -2,11 +2,13 @@
   margin: 0 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 24px 36px;
+  grid-template-rows: 20vw 20vw 20vw;
+  // grid-gap: 24px 36px;
 }
 
 .card-category {
-  height: 240px;
+  height: 30vh;
+  width: 100%;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
@@ -15,8 +17,8 @@ figure {
   display: flex;
   flex-flow: column;
   padding: 5px;
-  width: 320px;
-  height: 280px;
+  // width: 100vw;
+  height: 100%;
   object-fit: cover;
   // margin: 0 0 -1rem;
 }

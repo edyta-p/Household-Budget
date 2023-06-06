@@ -44,35 +44,41 @@ class ApartmentsController < ApplicationController
 
   def filter
     @apartments = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @apartments = Apartment.all
       @apartments = @apartments.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     elsif params[:query].present? && params[:date_from].present?
       @apartments = Apartment.all
       @apartments = @apartments.where('category = ? AND date_of_purchase >= ?', params[:query], params[:date_from]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     elsif params[:query].present? && params[:date_to].present?
       @apartments = Apartment.all
       @apartments = @apartments.where('category = ? AND date_of_purchase <= ?', params[:query], params[:date_to]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     elsif params[:date_from].present? && params[:date_to].present?
       @apartments = Apartment.all
       @apartments = @apartments.where(['date_of_purchase >= ? AND date_of_purchase <= ?', params[:date_from], params[:date_to]]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     elsif params[:date_from].present?
       @apartments = Apartment.all
       @apartments = @apartments.where('date_of_purchase >= ?', params[:date_from]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     elsif params[:date_to].present?
       @apartments = Apartment.all
       @apartments = @apartments.where('date_of_purchase <= ?', params[:date_to]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     else
       @apartments = Apartment.all
       @apartments = @apartments.where('category = ?', params[:query]).order(:date_of_purchase)
       @total = total
+      @currency = currency
     end
   end
 
