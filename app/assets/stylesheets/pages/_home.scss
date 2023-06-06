@@ -22,18 +22,24 @@ body {
 .navbar-picture-container {
   background-image: url("piggy_bank1.jpg");
   background-size: cover;
-  padding: 300px 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50% 5%;
+  // padding-bottom: 50%;
+  // object-fit: cover;
+
 
   div {
-    width: 800px;
+    width: clamp(200px,100%, 400px);
     color: $black;
-    padding-left: 80px;
+    // padding-left: 80px;
 
     p {
       font-size: 1.5em;
     }
   }
 }
+
 
 .centering {
   padding: 30px 0px;
