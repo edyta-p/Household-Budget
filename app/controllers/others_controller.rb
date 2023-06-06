@@ -44,7 +44,6 @@ class OthersController < ApplicationController
 
   def filter
     @others = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @others = Other.all
       @others = @others.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
@@ -78,10 +77,6 @@ class OthersController < ApplicationController
 
   def total
     @others.sum(:amount)
-  end
-
-  def currency
-    Other.first.currency
   end
 
   private

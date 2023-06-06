@@ -44,7 +44,6 @@ class RepaymentsController < ApplicationController
 
   def filter
     @repayments = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @repayments = Repayment.all
       @repayments = @repayments.where(['category = ? AND date_of_transaction >= ? AND date_of_transaction <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_transaction)
@@ -78,10 +77,6 @@ class RepaymentsController < ApplicationController
 
   def total
     @repayments.sum(:amount)
-  end
-
-  def currency
-    Repayment.first.currency
   end
 
   private

@@ -44,7 +44,6 @@ class SavingsController < ApplicationController
 
   def filter
     @savings = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @savings = Saving.all
       @savings = @savings.where(['category = ? AND date_of_transaction >= ? AND date_of_transaction <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_transaction)
@@ -78,10 +77,6 @@ class SavingsController < ApplicationController
 
   def total
     @savings.sum(:amount)
-  end
-
-  def currency
-    Saving.first.currency
   end
 
   private

@@ -44,7 +44,6 @@ class MobilesController < ApplicationController
 
   def filter
     @mobiles = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @mobiles = Mobile.all
       @mobiles = @mobiles.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
@@ -78,10 +77,6 @@ class MobilesController < ApplicationController
 
   def total
     @mobiles.sum(:amount)
-  end
-
-  def currency
-    Mobile.first.currency
   end
 
   private

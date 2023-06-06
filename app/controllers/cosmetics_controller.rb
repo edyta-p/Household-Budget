@@ -44,7 +44,6 @@ class CosmeticsController < ApplicationController
 
   def filter
     @cosmetics = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @cosmetics = Cosmetic.all
       @cosmetics = @cosmetics.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
@@ -78,10 +77,6 @@ class CosmeticsController < ApplicationController
 
   def total
     @cosmetics.sum(:amount)
-  end
-
-  def currency
-    Cosmetic.first.currency
   end
 
   private

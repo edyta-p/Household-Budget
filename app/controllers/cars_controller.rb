@@ -63,7 +63,6 @@ class CarsController < ApplicationController
 
   def filter
     @cars = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @cars = Car.all
       @cars = @cars.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
@@ -97,10 +96,6 @@ class CarsController < ApplicationController
 
   def total
     @cars.sum(:amount)
-  end
-
-  def currency
-    Car.first.currency
   end
 
   private

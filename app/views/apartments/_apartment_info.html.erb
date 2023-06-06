@@ -1,6 +1,6 @@
 <div data-controller="disable-button">
   <p class='card-font'><strong><%= apartment.category %></strong></p>
-  <p class='card-font'><strong>Amount: </strong><%= apartment.amount %> <%= apartment.currency %></p>
+  <p class='card-font'><strong>Amount: </strong><%= apartment.amount %> €</p>
   <%= button_tag "#", data: {disable_button_target: "info", action: "click->search-cards#display click->disable-button#disableInfo"}, id: "info" do %>
     <%# <i class="fa fa-thin fa-circle-info"></i> %>
     <i class="fa fa-solid fa-circle-info fa-lg icon" data-disable-button-target="infoIcon"></i>

@@ -44,7 +44,6 @@ class HealthsController < ApplicationController
 
   def filter
     @healths = []
-    @currency = currency
     if params[:query].present? && params[:date_from].present? && params[:date_to].present?
       @healths = Health.all
       @healths = @healths.where(['category = ? AND date_of_purchase >= ? AND date_of_purchase <= ?', params[:query], params[:date_from], params[:date_to]]).order(:date_of_purchase)
@@ -78,10 +77,6 @@ class HealthsController < ApplicationController
 
   def total
     @healths.sum(:amount)
-  end
-
-  def currency
-    Health.first.currency
   end
 
   private

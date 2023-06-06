@@ -1,5 +1,5 @@
 <p class='card-font'><strong><%= other.category %></strong></p>
-<p class='card-font'><strong>Amount: </strong><%= other.amount %> <%= other.currency %></p>
+<p class='card-font'><strong>Amount: </strong><%= other.amount %> €</p>
 <%= button_tag "#", data: {disable_button_target: "info", action: "click->search-cards#display click->disable-button#disableInfo"}, id: "info" do %>
   <%# <i class="fa fa-thin fa-circle-info"></i> %>
   <i class="fa fa-solid fa-circle-info fa-lg icon" data-disable-button-target="infoIcon"></i>
